@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Board Game Picker</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travelix Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+</head>
+<script>
+    var url=window.location.href;
+    // localStorage.getItem("userid123")
+    console.log('URL after 50 is',(url.substr(50)).replace("%20"," "));
+    console.log('URL after 53 is',(url.substr(53)).replace("%20"," "));
+    console.log('URL after 46 is',(url.substr(47)).replace("%20"," "));
+    console.log('substring',(url.substr(url.indexOf('?')+1,url.length)).replace("%20"," "));
+
+    function hideFunction() {
+        var x = document.getElementById("resDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+    }
+    function homepg() {
+        var url=window.location.href;
+        console.log('URL before is',url);
+        var userName=(url.substr(47)).replace("%20"," ");
+        console.log('URL after 50 is',(url.substr(50)).replace("%20"," "));
+        console.log('URL after 53 is',(url.substr(53)).replace("%20"," "));
+        console.log('URL after 47 is',(url.substr(47)).replace("%20"," "));
+        console.log('in html',userName);
+        window.location.href = 'home.html?'+ localStorage.getItem("userid123");
+    }
+    function profilepg() {
+        var url=window.location.href;
+        var userName=(url.substr(50)).replace("%20"," ");
+        console.log('in html',userName);
+        window.location.href = 'profile.html?'+ localStorage.getItem("userid123");
+    }
+    function aboutpg() {
+        var url=window.location.href;
+        var userName=(url.substr(50)).replace("%20"," ");
+        console.log('in html',userName);
+        window.location.href = 'about.html?'+ localStorage.getItem("userid123");
+    }
+    function contactpg() {
+        var url=window.location.href;
+        var userName=(url.substr(50)).replace("%20"," ");
+        console.log('in html',userName);
+        window.location.href = 'contact.html?'+ localStorage.getItem("userid123");
+    }
+    function signoutpg() {
+        var url=window.location.href;
+        var userName=(url.substr(50)).replace("%20"," ");
+        console.log('in html',userName);
+        window.location.href = 'index.html';
+    }
+    function historypg() {
+        var url=window.location.href;
+        var userName=(url.substr(50)).replace("%20"," ");
+        console.log('in html',userName);
+        window.location.href = 'history.html?'+ localStorage.getItem("userid123");
+    }
+</script>
+<body  ng-app="demoMongo" ng-controller="indexctrl">
+<div class="super_container">
+	<header class="header">
+		<nav class="main_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
+						<div class="logo_container">
+							<div class="logo"><a href="#"><img src="images/logo.png" alt="">Board Game Picker</a></div>
+						</div>
+						<div class="main_nav_container ml-auto">
+							<ul class="main_nav_list">
+								<li class="main_nav_item"><a onclick="homepg()">home</a></li>
+								<!--<li class="main_nav_item"><a onclick="profilepg()">profile</a></li>-->
+								<!--<li class="main_nav_item"><a onclick="historypg()">history</a></li>-->
+								<!--<li class="main_nav_item"><a onclick="contactpg()">contact</a></li>-->
+								<li class="main_nav_item"><a onclick="aboutpg()">about us</a></li>
+								<li class="main_nav_item"><a onclick="signoutpg()">sign out</a></li>
+							</ul>
+						</div>
+						<form id="search_form" class="search_form bez_1">
+							<input type="search" class="search_content_input bez_1">
+						</form>
+						<div class="hamburger">
+							<i class="fa fa-bars trans_200"></i>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</nav>
+	</header>
+	<!-- Home -->
+
+	<div class="home">
+
+		<!-- Home Slider -->
+
+		<div class="home_slider_container">
+
+			<div class="owl-carousel owl-theme home_slider">
+
+
+				<!-- Slider Item -->
+				<div class="owl-item home_slider_item">
+					<div class="home_slider_background" style="background-image:url(images/home_slider.jpg)"></div>
+
+					<div class="home_slider_content text-center">
+						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+							<h1>discover</h1>
+							<h1>the fun</h1>
+							<!--<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Search -->
+	<div>
+	<div class="search" >
+		<div class="container fill_height">
+			<div class="row fill_height">
+				<div class="col fill_height">
+					<div class="search_panel active">
+						<form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<div class="search_item">
+								<div>Game Players</div>
+								<input type="text" class="destination search_input" ng-model="players" required="required">
+							</div>
+							<div class="search_item">
+								<div>Game Time</div>
+								<input type="text" class="destination search_input" ng-model="time" required="required">
+							</div>
+							<div class="search_item">
+								<div>Interest</div>
+								<select name="interest" id="interest" class="dropdown_item_select search_input">
+									<option>Card</option>
+									<option>Adventure</option>
+									<option>Exploration</option>
+									<option>Fantasy</option>
+									<option>Fighting</option>
+									<option>Miniatures</option>
+									<option>Civilization</option>
+								</select>
+							</div>
+							<!--<button class="button search_button">search<span></span><span></span><span></span></button>-->
+							<input type="button" class="button search_button" style="padding:9px 18px;" onclick="hideFunction()"  ng-click="getSearchResult()" value="Find"/><br/><br/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div id="resDIV" class="search" style="display:none">
+	<div>
+		<div class="container fill_height" style="width:100%;">
+			<div class="row fill_height" style="width:100%;">
+				<div class="col fill_height" style="width:100%;">
+		<div class="search_item" style="width:100%;">
+			<table  >
+				<tr>
+				<th style="color: black">Game Details</th>
+				</tr>
+			</table>
+			<table ng-repeat="x in gamesArray" id="weather" class="" border="3">
+				<!--<tr>-->
+					<!--<th style="color: black">Game Details</th>-->
+				<!--</tr>-->
+					<tr >
+						<td style="color: black">{{x.substring(0,x.indexOf("^^^"))}}</td>
+					</tr>
+					<tr >
+						<td><img style="width: 200px" ng-src="{{x.substring(x.indexOf('^^^')+3,x.length)}}"/></td>
+					</tr>
+			</table>
+		</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<script src="js/directives/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/directives/custom.js"></script>
+</body>
+<script type="text/javascript" src="https://code.angularjs.org/1.1.1/angular.js"></script>
+<script type="text/javascript" src="https://code.angularjs.org/1.1.1/angular-resource.js"></script>
+<script type="text/javascript" src="https://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+<script src="js/apps.js"></script>
+</html>
